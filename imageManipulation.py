@@ -6,7 +6,7 @@ import random
 def createMeme(user, message):
     top = user.name + ": " + message
     bottom = "Me: " + changeCases(message)
-    font = ImageFont.truetype("FreeMono", 28)
+    font = ImageFont.truetype("DejaVuSansMono", 28)
     image = Image.open("template.png")
     draw = ImageDraw.Draw(image)
     draw.text((1, 1), top, (0, 0, 0), font)
