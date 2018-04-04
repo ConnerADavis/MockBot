@@ -1,3 +1,4 @@
+from imageManipulation import createMeme
 import discord
 import random
 
@@ -7,7 +8,6 @@ client = discord.Client()
 
 @client.event
 async def on_message(message):
-    #comment for spacing
     if message.author == client.user:
         return
 
@@ -21,8 +21,12 @@ async def on_message(message):
                 break
         msg = "No recent message by " + user.name
         if found and lastmessage != "":
-            msg = changeCases(lastmessage)
-        await client.send_message(message.channel, msg)
+            # msg = changeCases(lastmessage)
+            # msg = createMeme(user, lastmessage)
+            createMeme(user, lastmessage)
+            await client.send_file(message.channel, "edited.png")
+        else:
+            await client.send_message(message.channel, msg)
 
 @client.event
 async def on_ready():
@@ -31,7 +35,8 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-def changeCases(original):
+
+def changeCases(original):  # CHANGE CASES!
     msg = ""
     characters = list(original)
     for c in characters:
