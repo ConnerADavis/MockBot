@@ -19,18 +19,9 @@ async def on_message(message):
                 lastmessage = m.content
                 found = True
                 break
-        msg = "No recent message by that user".format(message)
+        msg = "No recent message by " + user.name
         if found and lastmessage != "":
-            msg = ""
-            characters = list(lastmessage)
-            for c in characters:
-                tmp = c
-                if c.isalpha():
-                    if random.randint(0, 10) < 5:
-                        tmp = tmp.upper()
-                    else:
-                        tmp = tmp.lower()
-                msg += tmp
+            msg = changeCases(lastmessage)
         await client.send_message(message.channel, msg)
 
 @client.event
@@ -39,5 +30,18 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print('------')
+
+def changeCases(original):
+    msg = ""
+    characters = list(original)
+    for c in characters:
+        tmp = c
+        if c.isalpha():
+            if random.randint(0, 10) < 5:
+                tmp = tmp.upper()
+            else:
+                tmp = tmp.lower()
+        msg += tmp
+    return msg
 
 client.run(TOKEN)
