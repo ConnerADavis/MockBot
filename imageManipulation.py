@@ -41,11 +41,13 @@ def createMemeComplex(top, bottom):
     topOne = ""
     topTwo = ""
     top = top.split()
+    tooLong = False
     for t in top:
-        if len(topOne) + len(t) < 40:
+        if len(topOne) + len(t) < 40 and not tooLong:
             topOne += " "
             topOne += t
         elif len(topTwo) + len(t) < 40:
+            tooLong = True
             topTwo += " "
             topTwo += t
         else:
@@ -54,11 +56,13 @@ def createMemeComplex(top, bottom):
     bottomOne = ""
     bottomTwo = ""
     bottom = bottom.split()
+    tooLong = False
     for b in bottom:
-        if len(bottomOne) + len(b) < 40:
+        if len(bottomOne) + len(b) < 40 and not tooLong:
             bottomOne += " "
             bottomOne += b
         elif len(bottomTwo) + len(b) < 40:
+            tooLong = True
             bottomTwo += " "
             bottomTwo += b
         else:
