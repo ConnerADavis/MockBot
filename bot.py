@@ -13,10 +13,12 @@ async def on_message(message):
 
     if message.content.startswith("!mock") and len(message.mentions) > 0:
         user = message.mentions[0]
+        lastmessage = ""
         async for m in client.logs_from(message.channel):
             if m.author == user:
                 lastmessage = m.content
-                break
+                if not lastmessage.startswith("!mock"):
+                   break
         msg = "No recent message by " + user.name
         if lastmessage != "":
             createMeme(user, lastmessage)
