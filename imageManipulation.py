@@ -32,6 +32,7 @@ def createMemeSimple(top, bottom):
     draw.text((1, 1), top, (0, 0, 0), font)
     draw.text((1, 74), bottom, (0, 0, 0), font)
     image.save("edited.png", "PNG")
+    image.close()
 
 
 def createMemeComplex(top, bottom):
@@ -73,3 +74,4 @@ def createMemeComplex(top, bottom):
     draw.text((1, 74), bottomOne, (0, 0, 0), font)
     draw.text((1, 111), bottomTwo, (0, 0, 0), font)
     image.save("edited.png", "PNG")
+    image.close()
