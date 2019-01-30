@@ -2,7 +2,7 @@ from imageManipulation import createMeme
 import discord
 import random
 
-TOKEN = "NDMxMTUxMTIwNTA5OTYwMjAy.DaakVQ.GU1pAQh08d3jUrmtK-OIU_MEc-M"
+TOKEN = "[Redacted for security]"
 
 client = discord.Client()
 
